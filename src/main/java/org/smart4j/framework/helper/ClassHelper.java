@@ -4,7 +4,6 @@ import org.smart4j.framework.annotation.Controller;
 import org.smart4j.framework.annotation.Service;
 import org.smart4j.framework.util.ClassUtil;
 
-import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -56,6 +55,11 @@ public final class ClassHelper {
         }
         return controllerClassSet;
     }
+
+    /**
+     * 获取应用包名下所有beanl类（包括：Service、Controller）
+     * @return
+     */
     public static Set<Class<?>> getBeanClassSet () {
         Set<Class<?>> beanClassSet = new HashSet<>();
         beanClassSet.addAll(getServiceClassSet());
