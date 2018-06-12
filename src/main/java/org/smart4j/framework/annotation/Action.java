@@ -13,4 +13,10 @@ import java.lang.annotation.*;
 @Documented
 public @interface Action {
 
+    /**
+     * 请求类型与路径
+     * @return
+     */
+    String value();
+
 }
