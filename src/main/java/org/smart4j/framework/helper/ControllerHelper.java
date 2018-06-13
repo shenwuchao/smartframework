@@ -1,6 +1,8 @@
 package org.smart4j.framework.helper;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.smart4j.framework.annotation.Action;
 import org.smart4j.framework.bean.Handler;
 import org.smart4j.framework.bean.Request;
@@ -20,6 +22,7 @@ import java.util.Set;
  */
 public final class ControllerHelper {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(ControllerHelper.class);
     private static final Map<Request, Handler> ACTION_MAP = new HashMap<>();
 
     static {
@@ -42,6 +45,8 @@ public final class ControllerHelper {
                                     Handler handler = new Handler(cls, controllerMethod);
                                     ACTION_MAP.put(request, handler);
                                 }
+                            } else {
+                                LOGGER.warn("request action is illegal.");
                             }
                         }
                     }
